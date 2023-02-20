@@ -1,0 +1,9 @@
+Output:
+
+Enter a sentence: yaswanth sai full name is yarabati yaswanth sai
+yaswanth: 2
+sai: 2
+full: 1
+name: 1
+is: 1
+yarabati: 1
