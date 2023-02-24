@@ -1,5 +1,3 @@
-Output:
-
 Enter a sentence: yaswanth sai full name is yarabati yaswanth sai
 yaswanth: 2
 sai: 2

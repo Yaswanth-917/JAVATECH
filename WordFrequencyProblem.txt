@@ -1,12 +1,10 @@
-Sentence_count.java:
-
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class Sample17 {
+public class WordFrequencyCount {
     private HashMap<String, Integer> wordCounts;
 
-    public Sample17(String sentence) {
+    public WordFrequencyCount(String sentence) {
         wordCounts = new HashMap<String, Integer>();
         String[] words = sentence.split("\\s+");
         for (String word : words) {
@@ -32,7 +30,7 @@ public class Sample17 {
         System.out.print("Enter a sentence: ");
         String sentence = input.nextLine();
 
-        Sample17 wordCounter = new Sample17(sentence);
+        WordFrequencyCount wordCounter = new WordFrequencyCount(sentence);
 
         String[] words = sentence.split("\\s+");
         HashMap<String, Boolean> printedWords = new HashMap<String, Boolean>();

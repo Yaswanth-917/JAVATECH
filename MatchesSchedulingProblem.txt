@@ -1,0 +1,66 @@
+import java.util.*;
+
+public class MatchSchedulingProgram {
+
+    private List<String> teams;
+
+    public MatchSchedulingProgram(List<String> teams) {
+        this.teams = teams;
+    }
+
+    public void generateSchedule() {
+        int numTeams = teams.size();
+        int numRounds = numTeams - 1;
+        int matchesPerRound = numTeams / 2;
+        List<String> copy = new ArrayList<>(teams);
+        copy.remove(0);
+        int copySize = copy.size();
+        for (int round = 0; round < numRounds; round++) {
+            System.out.println("Round " + (round + 1));
+            int teamIdx = round % copySize;
+            String team = copy.get(teamIdx);
+            System.out.println("Morning Session:");
+            System.out.println(teams.get(0) + " vs " + team);
+            int matchNum = 1;
+            for (int match = 1; match < matchesPerRound; match++) {
+                int home = (round + match) % copySize;
+                int away = (round + copySize - match) % copySize;
+                System.out.println(copy.get(home) + " vs " + copy.get(away));
+                matchNum++;
+                if (matchNum > 1) {
+                    break;
+                }
+            }
+            System.out.println();
+            System.out.println("Afternoon Session:");
+            int afternoonTeamIdx = (round + 1) % copySize;
+            String afternoonTeam = copy.get(afternoonTeamIdx);
+            System.out.println(copy.get(copySize - 1) + " vs " + afternoonTeam);
+            matchNum = 1;
+            for (int match = 1; match < matchesPerRound; match++) {
+                int home = (round + match) % copySize;
+                int away = (round + copySize - match) % copySize;
+                if (copy.get(home).equals(afternoonTeam) || copy.get(away).equals(afternoonTeam)) {
+                    continue;
+                }
+                System.out.println(copy.get(away) + " vs " + copy.get(home));
+                matchNum++;
+                if (matchNum > 1) {
+                    break;
+                }
+            }
+            System.out.println();
+        }
+    }
+
+    public static void main(String[] args) {
+        List<String> teams = new ArrayList<>();
+        teams.add("India");
+        teams.add("South Africa");
+        teams.add("England");
+        teams.add("Sri Lanka");
+        teams.add("Australia");
+        MatchSchedulingProgram test = new MatchSchedulingProgram(teams);
+        test.generateSchedule();
+    }
+}

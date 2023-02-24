@@ -1,5 +1,9 @@
-Match.java:
-public class Match {
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
+class Match {
     private int day;
     private int matchNumber;
     private String homeTeam;
@@ -34,14 +38,7 @@ public class Match {
         return matchTime;
     }
 }
-
-Main.java:
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-
-public class Main {
+class RoundRobin {
     private static final String[] TIME = {"Morning", "Afternoon"};
     private static final int MATCHES_PER_DAY = 2;
     private static final List<String> TEAMS = Arrays.asList("Team1", "Team2", "Team3", "Team4", "Team5");
@@ -63,7 +60,7 @@ public class Main {
         }
 
         for (Match match : schedule) {
-            System.out.println("Day " + match.getDay()  + " - " + match.getHomeTeam() + " vs " + match.getAwayTeam() + " - " + match.getMatchTime());
+            System.out.println("Day " + match.getDay()  + " - " + match.getAwayTeam() + " vs " + match.getHomeTeam() + " - " + match.getMatchTime());
         }
     }
 }

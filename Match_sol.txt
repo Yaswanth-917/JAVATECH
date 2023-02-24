@@ -1,9 +1,0 @@
-Output:
-Day 1 - Team1 vs Team4 - Morning
-Day 1 - Team5 vs Team2 - Afternoon
-Day 2 - Team5 vs Team3 - Morning
-Day 2 - Team4 vs Team2 - Afternoon
-Day 3 - Team1 vs Team2 - Morning
-Day 3 - Team5 vs Team4 - Afternoon
-Day 4 - Team5 vs Team2 - Morning
-Day 4 - Team4 vs Team3 - Afternoon
