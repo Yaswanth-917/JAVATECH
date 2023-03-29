@@ -1,0 +1,66 @@
+import java.util.*;
+
+public class BillSettle {
+    public static void main(String[] args) {
+        Map<String, Integer> balance = new HashMap<>();
+        List<Bill> receipt = new ArrayList<>();
+        receipt.add(new Bill("Lunch", 2000, "Balaji", Arrays.asList("Anand", "Balaji", "Chaitanya", "Divya")));
+        receipt.add(new Bill("Movie ticket", 1000, "Anand", Arrays.asList("Anand", "Balaji", "Chaitanya", "Divya")));
+        receipt.add(new Bill("Snacks", 500, "Chaitanya", Arrays.asList("Anand", "Balaji", "Chaitanya")));
+        for (Bill bill : receipt) {
+            String paidBy = bill.getPaidBy();
+            int totalAmount = bill.getTotalAmount();
+            List<String> sharedBy = bill.getSharedBy();
+            int sharePerPerson = totalAmount / sharedBy.size();
+            if (!balance.containsKey(paidBy)) {
+                balance.put(paidBy, totalAmount);
+            } else {
+                balance.put(paidBy, balance.get(paidBy) + totalAmount);
+            }
+            for (String person : sharedBy) {
+                if (!person.equals(paidBy)) {
+                    if (!balance.containsKey(person)) {
+                        balance.put(person, -sharePerPerson);
+                    } else {
+                        balance.put(person, balance.get(person) - sharePerPerson);
+                    }
+                }
+            }
+        }
+        for (Map.Entry<String, Integer> entry : balance.entrySet()) {
+            String person = entry.getKey();
+            int balances = entry.getValue();
+            System.out.println(person + " owes " + (-balances) + " to others.");
+        }
+    }
+}
+
+class Bill {
+    private String description;
+    private int totalAmount;
+    private String paidBy;
+    private List<String> sharedBy;
+
+    public Bill(String description, int totalAmount, String paidBy, List<String> sharedBy) {
+        this.description = description;
+        this.totalAmount = totalAmount;
+        this.paidBy = paidBy;
+        this.sharedBy = sharedBy;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public int getTotalAmount() {
+        return totalAmount;
+    }
+
+    public String getPaidBy() {
+        return paidBy;
+    }
+
+    public List<String> getSharedBy() {
+        return sharedBy;
+    }
+}
