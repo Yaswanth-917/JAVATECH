@@ -3,8 +3,8 @@ import java.util.*;
 public class ScoreCalculator {
     public static void main(String[] args) {
         Map<Integer, List<Integer>> Scores = new HashMap<>();
-        Scores.put(1, Arrays.asList(10, 20, 10));
-        Scores.put(2, Arrays.asList(10, 20, 11));
+        Scores.put(1, Arrays.asList(25, 35, 45));
+        Scores.put(2, Arrays.asList(25, 35, 22));
 
         Map<Integer, Integer> TotalScores = new HashMap<>();
 
