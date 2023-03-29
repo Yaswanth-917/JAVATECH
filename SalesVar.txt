@@ -1,0 +1,31 @@
+public class SalesVar {
+
+    public static void main(String[] args) {
+        double[] sales21 = { 200.0, 200.0, 150.0 };
+        double[] sales22 = { 240.0, 220.0, 200.0 };
+        double mean21 = Mean(sales21);
+        double mean22 = Mean(sales22);
+        double var21 = Var(sales21, mean21);
+        double var22 = Var(sales22, mean22);
+        double varPct = (var22 - var21) / var21 * 100.0;
+        System.out.printf("2021 Variance: %.2f\n", var21);
+        System.out.printf("2022 Variance: %.2f\n", var22);
+        System.out.printf("Variance Pct: %.2f%%\n", varPct);
+    }
+
+    public static double Mean(double[] data) {
+        double sum = 0.0;
+        for (double d : data) {
+            sum += d;
+        }
+        return sum / data.length;
+    }
+
+    public static double Var(double[] data, double mean) {
+        double sumSquares = 0.0;
+        for (double d : data) {
+            sumSquares += (d - mean) * (d - mean);
+        }
+        return sumSquares / (data.length - 1);
+    }
+}
