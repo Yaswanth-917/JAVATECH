@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class ScoreCalculator {
+public class ScoreCalculatorProblem {
     public static void main(String[] args) {
         Map<Integer, List<Integer>> Scores = new HashMap<>();
         Scores.put(1, Arrays.asList(25, 35, 45));

@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class BillSettle {
+public class BillSettleProblem {
     public static void main(String[] args) {
         Map<String, Integer> balance = new HashMap<>();
         List<Bill> receipt = new ArrayList<>();
